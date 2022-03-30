@@ -16,7 +16,7 @@ public class DataConfiguration {
     public DataSource dataSource(){
         try {
             DriverManagerDataSource dataSource = new DriverManagerDataSource();
-            dataSource.setDriverClassName("com.mysql.jdbc.Driver");
+            dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
             dataSource.setUrl("jdbc:mysql://localhost:3306/eventosapp");
             dataSource.setUsername("root");
             dataSource.setPassword("root");
@@ -34,7 +34,7 @@ public class DataConfiguration {
             adapter.setDatabase(Database.MYSQL);
             adapter.setShowSql(true); // Espécie de Logs de console
             adapter.setGenerateDdl(true); // Manda o hibernate criar tabelas
-            adapter.setDatabasePlatform("org.hibernate.dialect.MySQL8Dialect");//Usar dialeto de acrodo com a versão da dependência;
+            adapter.setDatabasePlatform("org.hibernate.dialect.MySQL8Dialect");//Usar dialeto de acordo com a versão da dependência;
             adapter.setPrepareConnection(true); // Automatiza a conexões
 
             return adapter;

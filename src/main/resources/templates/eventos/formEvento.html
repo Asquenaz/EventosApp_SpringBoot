@@ -1,39 +1,33 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<html lang="pt-br" xmls="http://www.w3.org/1999/xhtml"
-           xmls:layaut="xmlns:xmls=http://www.ultaq.net.nz/thymeleaf/layaut"
-           xmlns:xmls="http://www.w3.org/1999/xhtml" >
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
         <title>EventosApp:</title>
     </head>
     <body>
     <h4>Cadastro de Eventos</h4>
 
-    <form method="post" action="#">
+    <form method="post">
 
         Nome: <input type="text"
-                    name="nomeEvento"
-                    id="nomeEvento"
-                    value="Informe o nome do Evento"
-                    onfocus="value='';" >
+                     name="nomeEvento"
+                     id="nomeEvento"
+                     value="" />
 
         Local:<input type="text"
                      name="localEvento"
                      id="localEvento"
-                     value="Informe o local"
-                     onfocus="value='';" >
+                     value="" />
 
         Data: <input type="date"
                      name="dataEvento"
                      id="dataEvento"
-                     value="Informe a data do evento"
-                     onfocus="value='';" >
+                     value="" />
 
         Hora: <input type="time"
                      name="horaEvento"
                      id="horaEvento"
-                     value="Informe a hora do evento"
-                     onfocus="value=''">
+                     value="" />
 
         <button type="submit">Salvar</button>
     </form>
