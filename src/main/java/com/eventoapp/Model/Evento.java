@@ -24,6 +24,5 @@ public class Evento implements Serializable {
     private String Local;
     private String data;
     private String HoraInicioEvento;
-
 }
 

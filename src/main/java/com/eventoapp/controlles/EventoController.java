@@ -5,21 +5,21 @@ import com.eventoapp.Repository.EventoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
-import javax.transaction.Transactional;
 
 @Controller
+
 public class EventoController {
     @Autowired
     private EventoRepository eventoRepository;
 
-
-    @RequestMapping(value = "/CadastroEvento" , method = RequestMethod.GET)
+    @GetMapping
     public String form(){
         return "eventos/formEvento";
     }
 
-    @RequestMapping(value = "/CadastroEvento" , method = RequestMethod.POST)
+    @RequestMapping(value = "/CadastroEvento", method = RequestMethod.POST)
     public String form (@RequestParam("nomeEvento") String nome, @RequestParam("localEvento") String local,
           @RequestParam("dataEvento") String data,@RequestParam("horaEvento") String horaInicioEvento) {
 
@@ -31,5 +31,14 @@ public class EventoController {
         eventoRepository.save(evento);
 
         return "redirect:/CadastroEvento";
+    }
+
+    @RequestMapping(value = "/eventos")
+    public ModelAndView listaEventos(){
+        ModelAndView model = new ModelAndView("index");
+        Iterable<Evento> eventos = eventoRepository.findAll();
+        model.addObject("eventos", eventos);
+
+        return model;
     }
 }
