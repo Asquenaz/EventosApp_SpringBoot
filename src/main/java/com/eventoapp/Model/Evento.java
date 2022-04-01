@@ -21,8 +21,8 @@ public class Evento implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nome;
-    private String Local;
+    private String local;
     private String data;
-    private String HoraInicioEvento;
+    private String horaInicioEvento;
 }
 

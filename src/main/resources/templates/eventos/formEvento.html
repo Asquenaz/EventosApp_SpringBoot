@@ -2,10 +2,10 @@
 <html xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <title>EventosApp:</title>
+        <title>Cadastrar</title>
     </head>
     <body>
-    <h4>Cadastro de Eventos</h4>
+    <h4> Cadastro de Eventos</h4>
 
     <form method="post">
 
@@ -28,7 +28,10 @@
                      name="horaEvento"
                      id="horaEvento"
                      value="" />
-        <button type="submit">Salvar</button>
+
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
     </form>
     </body>
 </html>

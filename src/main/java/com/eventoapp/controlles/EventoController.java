@@ -7,19 +7,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-
 @Controller
-
 public class EventoController {
     @Autowired
     private EventoRepository eventoRepository;
 
-    @GetMapping
+    @RequestMapping(value = "/cadastroEvento", method = RequestMethod.GET)
     public String form(){
         return "eventos/formEvento";
     }
 
-    @RequestMapping(value = "/CadastroEvento", method = RequestMethod.POST)
+    @RequestMapping(value = "/cadastroEvento", method = RequestMethod.POST)
     public String form (@RequestParam("nomeEvento") String nome, @RequestParam("localEvento") String local,
           @RequestParam("dataEvento") String data,@RequestParam("horaEvento") String horaInicioEvento) {
 
@@ -30,12 +28,12 @@ public class EventoController {
         evento.setHoraInicioEvento(horaInicioEvento);
         eventoRepository.save(evento);
 
-        return "redirect:/CadastroEvento";
+        return "redirect:/cadastroEvento";
     }
 
     @RequestMapping(value = "/eventos")
     public ModelAndView listaEventos(){
-        ModelAndView model = new ModelAndView("index");
+        ModelAndView model = new ModelAndView("eventos/viewEvents");
         Iterable<Evento> eventos = eventoRepository.findAll();
         model.addObject("eventos", eventos);
 
