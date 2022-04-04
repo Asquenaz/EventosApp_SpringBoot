@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-    <head>
-        <title>Cadastrar</title>
-    </head>
-    <body>
-    <h4> Cadastro de Eventos</h4>
+<head>
+    <title>Cadastrar</title>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="materialize/css/teste.css"  media="screen,projection"/>
 
-    <form method="post">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+<body>
+<h1 id="tituloPagina"> Cadastro de Eventos</h1>
+<form method="post" class="container">
+    Nome: <input type="text"
+                 name="nomeEvento"
+                 id="nomeEvento"
+                 value="" />
 
-        Nome: <input type="text"
-                     name="nomeEvento"
-                     id="nomeEvento"
-                     value="" />
+    <div class="row">
+        <div class="input-field col s6">
+            Local:<input type="text"
+                         name="localEvento"
+                         id="localEvento"
+                         value="" />
+        </div>
 
-        Local:<input type="text"
-                     name="localEvento"
-                     id="localEvento"
-                     value="" />
+        <div class="input-field col s3">
+            Data: <input type="date"
+                         name="dataEvento"
+                         id="dataEvento"
+                         value="" />
+        </div>
+        <div class="input-field col s3">
+            Hora: <input type="time"
+                         name="horaEvento"
+                         id="horaEvento"
+                         value="" />
+        </div>
+    </div>
 
-        Data: <input type="date"
-                     name="dataEvento"
-                     id="dataEvento"
-                     value="" />
-
-        Hora: <input type="time"
-                     name="horaEvento"
-                     id="horaEvento"
-                     value="" />
-
-        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-            <i class="material-icons right">send</i>
-        </button>
-    </form>
-    </body>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar </button>
+    <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Lisatar Eventos</a>
+</form>
+</body>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </html>

@@ -1,3 +1,11 @@
 #newEvent{
     margin-top: 15px;
 }
+#tituloPagina{
+    margin-top: 7rem;
+    margin-bottom: 5rem;
+    text-align: center;
+}
+#viewEvents{
+    margin-top: 7rem;
+}

@@ -39,4 +39,15 @@ public class EventoController {
 
         return model;
     }
+
+    @RequestMapping("/{id}")
+    public ModelAndView detalheEvento(@PathVariable("id") long id){
+        Evento evento = eventoRepository.findById(id);
+        ModelAndView model = new ModelAndView("eventos/detalhesEvento");
+        model.addObject("evento", evento);
+        System.out.println("evento" + evento);
+
+        return model;
+    }
+
 }

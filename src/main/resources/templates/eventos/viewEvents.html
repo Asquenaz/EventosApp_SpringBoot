@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html  lang="pt-br" xmlns:th="https://thymeleaf.org"
-          xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
     <title>Eventos</title>
@@ -17,28 +17,32 @@
 </head>
 <body>
 
+<div class="container">
+    <div class="input-field col s4">
+        <h1 id="viewEvents">Lista de eventos</h1>
+        <table class="striped">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Local</th>
+                <th>Data</th>
+                <th>Hora</th>
+            </tr>
+            </thead>
+            <tbody >
+            <tr th:each="evento : ${eventos}">
+              <td><a th:href="${(#mvc.url('EC#detalheEvento').arg(0, evento.id)).build()}"><span th:text="${evento.nome}"></span></a></td>
+                <td><span th:text="${evento.Local}"></span></td>
+                <td><span th:text="${evento.data}"></span></td>
+                <td><span th:text="${evento.horaInicioEvento}"></span></td>
+            </tr>
+            </tbody>
+        </table>
+        <a id="newEvent" href="/cadastroEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Novo Eventos</a>
+    </div>
+</div>
 
-<table class="striped">
-     <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Local</th>
-            <th>Data</th>
-            <th>Hora</th>
-        </tr>
-    </thead>
-    <tbody>
-         <tr th:each="evento : ${eventos}">
-            <td><span th:text="${evento.nome}"></span></td>
-            <td><span th:text="${evento.Local}"></span></td>
-            <td><span th:text="${evento.data}"></span></td>
-            <td><span th:text="${evento.horaInicioEvento}"></span></td>
-         </tr>
-    </tbody>
-</table>
-        <a id="newEvent" href="/cadastroEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Cadastrar Eventos</a>
-
-    <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="materialize/js/materialize.min.js"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </body>
 </html>
