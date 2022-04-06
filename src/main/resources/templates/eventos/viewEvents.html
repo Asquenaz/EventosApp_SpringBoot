@@ -3,7 +3,7 @@
        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
     <meta charset="UTF-8">
-    <title>Eventos</title>
+    <title>Visualizar Eventos</title>
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -16,6 +16,7 @@
 
 </head>
 <body>
+<a href="/"><i class="material-icons">arrow_back</i></a>
 
 <div class="container">
     <div class="input-field col s4">
@@ -27,18 +28,21 @@
                 <th>Local</th>
                 <th>Data</th>
                 <th>Hora</th>
+
             </tr>
             </thead>
             <tbody >
             <tr th:each="evento : ${eventos}">
-              <td><a th:href="${(#mvc.url('EC#detalheEvento').arg(0, evento.id)).build()}"><span th:text="${evento.nome}"></span></a></td>
+                <td><a th:href="${(#mvc.url('EC#detalheEvento').arg(0, evento.id)).build()}"><span th:text="${evento.nome}"></span></a></td>
                 <td><span th:text="${evento.Local}"></span></td>
                 <td><span th:text="${evento.data}"></span></td>
                 <td><span th:text="${evento.horaInicioEvento}"></span></td>
+                <td><a th:href="${(#mvc.url('EC#deletarEvento').arg(0, evento.id)).build()}">
+                    <i class="material-icons left">delete</i></a></td>
             </tr>
             </tbody>
         </table>
-        <a id="newEvent" href="/cadastroEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Novo Eventos</a>
+        <a id="newEvent" href="/cadastroEvento" class="waves-effect waves-light btn"><i class="material-icons left">add_circle_outline</i>Novo Evento</a>
     </div>
 </div>
 

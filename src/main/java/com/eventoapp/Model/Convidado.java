@@ -6,29 +6,25 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
+
 
 
 @Getter
 @Setter
 @Entity
-public class Evento implements Serializable {
+public class Convidado implements Serializable {
 
     private static  long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private long id;
+    @NotEmpty
+    private String rg;
     @NotEmpty
     private String nome;
-    @NotEmpty
-    private String local;
-    @NotEmpty
-    private String data;
-    @NotEmpty
-    private String horaInicioEvento;
 
-    @OneToMany
-    private List<Convidado> convidado;
+    @ManyToOne
+    private Evento evento;
+
 }
-

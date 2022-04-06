@@ -9,3 +9,15 @@
 #viewEvents{
     margin-top: 7rem;
 }
+#btnCadList{
+    display: flex;
+    justify-content: space-between;
+}
+#list{
+    margin-top: 5rem;
+    margin-bottom: -7rem;
+}
+#adcConvdidados{
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}

@@ -13,11 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+<a href="/"><i class="material-icons">arrow_back</i></a>
 <h1 id="tituloPagina"> Cadastro de Eventos</h1>
 <form method="post" class="container">
     Nome: <input type="text"
                  name="nomeEvento"
                  id="nomeEvento"
+                 required
                  value="" />
 
     <div class="row">
@@ -25,6 +27,7 @@
             Local:<input type="text"
                          name="localEvento"
                          id="localEvento"
+                         required
                          value="" />
         </div>
 
@@ -32,18 +35,23 @@
             Data: <input type="date"
                          name="dataEvento"
                          id="dataEvento"
+                         required
                          value="" />
         </div>
         <div class="input-field col s3">
             Hora: <input type="time"
                          name="horaEvento"
                          id="horaEvento"
+                         required
                          value="" />
         </div>
     </div>
 
-    <button class="btn waves-effect waves-light" type="submit" name="action">Cadastrar </button>
-    <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Lisatar Eventos</a>
+    <div id="btnCadList">
+    <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons left">add_circle_outline</i>Cadastrar Evento</button>
+    <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Listar Eventos</a>
+    </div>
+
 </form>
 </body>
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>

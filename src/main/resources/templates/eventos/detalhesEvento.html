@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html  lang="pt-br" xmlns:th="https://thymeleaf.org"
-       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="pt-br" xmlns:th="https://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Evento</title>
+    <title>Detalhes Evento</title>
 
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
@@ -28,8 +28,8 @@
         </tr>
         </thead>
         <tbody>
-                <h1 id="viewEvents">Detalhes do evento</h1>
-        <div th:each ="evento : ${evento}" >
+        <h1 id="viewEvents">Detalhes do evento</h1>
+        <div th:each ="evento : ${evento}">
             <td><p><span th:text="${evento.nome}"></span></td>
             <td><span th:text="${evento.Local}"></span></td>
             <td><span th:text="${evento.data}"></span></td>
@@ -37,7 +37,55 @@
         </div>
         </tbody>
     </table>
-    <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Listar Eventos</a>
+    <th:block th:include="mensagemValidacao"></th:block>
+    <form method="post">
+        <h4 id="adcConvdidados">Adicione convidados ao evento <span th:text="${evento.nome}"></span></h4>
+        Nome: <input type="text"
+                     id="nome"
+                     name="nome"
+                     value=""
+                     required
+                     placeholder="Nome completo"/>
+
+        RG: <input type="text"
+                   id="rg"
+                   name="rg"
+                   value=""
+                   required
+                   placeholder="00.000.00-0"/>
+
+        <div id="btnCadList">
+            <button class="waves-effect waves-light btn" type="submit" name="action">Adicionar Convidado</button>
+            <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Listar Eventos</a>
+        </div>
+    </form>
+
+    <h5 id="list">Lista de convidados</h5>
+    <table class="striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>RG</th>
+        </tr>
+        </thead>
+
+        <div class="container" th:each = "convidado : ${convidado}">
+            <div class = "row" >
+                <tbody >
+                <div class="input-field col s2">
+                    <td><p><span th:text="${convidado.id}"></span></p></td>
+                </div>
+                <div class="input-field col s2">
+                    <td><p><span th:text="${convidado.nome}"></span></p></td>
+                </div>
+                <div class="input-field col s2">
+                    <td><p><span th:text="${convidado.rg}"></span></p></td>
+                </div>
+                </tbody>
+            </div>
+        </div>
+    </table>
 </div>
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
