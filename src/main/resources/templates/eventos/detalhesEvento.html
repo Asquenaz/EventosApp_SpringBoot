@@ -82,6 +82,7 @@
                 <div class="input-field col s2">
                     <td><p><span th:text="${convidado.rg}"></span></p></td>
                 </div>
+                <td><a th:href="${(#mvc.url('EC#deletarConvidado').arg(0, convidado.id)).build()}"><i class="material-icons left">delete</i></a></td>
                 </tbody>
             </div>
         </div>

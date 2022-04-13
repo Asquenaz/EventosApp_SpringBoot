@@ -15,12 +15,14 @@
 <body>
 <a href="/"><i class="material-icons">arrow_back</i></a>
 <h1 id="tituloPagina"> Cadastro de Eventos</h1>
+
 <form method="post" class="container">
     Nome: <input type="text"
                  name="nomeEvento"
                  id="nomeEvento"
                  required
-                 value="" />
+                 value=""
+    />
 
     <div class="row">
         <div class="input-field col s6">
@@ -28,7 +30,8 @@
                          name="localEvento"
                          id="localEvento"
                          required
-                         value="" />
+                         value=""
+            />
         </div>
 
         <div class="input-field col s3">
@@ -36,24 +39,27 @@
                          name="dataEvento"
                          id="dataEvento"
                          required
-                         value="" />
+                         value=""
+            />
         </div>
+
         <div class="input-field col s3">
             Hora: <input type="time"
                          name="horaEvento"
                          id="horaEvento"
                          required
-                         value="" />
+                         value=""
+            />
         </div>
     </div>
 
     <div id="btnCadList">
-    <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons left">add_circle_outline</i>Cadastrar Evento</button>
-    <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Listar Eventos</a>
+        <button class="btn waves-effect waves-light" type="submit" name="action"><i class="material-icons left">add_circle_outline</i>Cadastrar Evento</button>
+        <a href="/eventos" class="waves-effect waves-light btn"><i class="material-icons left">view_list</i>Listar Eventos</a>
     </div>
-
 </form>
 </body>
+
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </html>

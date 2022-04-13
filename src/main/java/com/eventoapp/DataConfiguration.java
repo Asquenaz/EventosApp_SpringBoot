@@ -41,6 +41,5 @@ public class DataConfiguration {
         }catch (Exception e){
             throw new IllegalArgumentException("Erro de criação de tabela" + e);
         }
-
     }
 }

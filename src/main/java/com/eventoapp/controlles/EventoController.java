@@ -26,14 +26,9 @@ public class EventoController {
     }
 
     @RequestMapping(value = "/cadastroEvento", method = RequestMethod.POST)
-    public String form(@RequestParam("nomeEvento") String nome, @RequestParam("localEvento") String local,
+    public String formularioEvento(@RequestParam("nomeEvento") String nome, @RequestParam("localEvento") String local,
                        @RequestParam("dataEvento") String data, @RequestParam("horaEvento") String horaInicioEvento) {
 
-//        if (result.hasErrors()){
-//            redirectAttributes.addAttribute("mensagem",
-//                    "Erro! Verifique os campos");
-//            return "redirect:/cadastroEvento";
-//        }
         Evento evento = new Evento();
         evento.setNome(nome);
         evento.setLocal(local);
@@ -70,7 +65,6 @@ public class EventoController {
         Evento evento = eventoRepository.findById(id);
         eventoRepository.delete(evento);
 
-
         return "redirect:/eventos";
     }
 
@@ -89,5 +83,18 @@ public class EventoController {
         redirectAttributes.addFlashAttribute("mensagem", "Dados salvos com sucesso");
 
         return "redirect:/{id}";
+    }
+
+    @RequestMapping(value = "/deletarConvidado")
+    public String deletarConvidado( long id){
+        Convidado convidado = convidadoRepository.findById(id);
+        convidadoRepository.delete(convidado);
+
+        Evento evento = convidado.getEvento();
+        long idEv = evento.getId();
+        String cod = "" + idEv;
+
+
+        return "redirect:/" + cod;
     }
 }
