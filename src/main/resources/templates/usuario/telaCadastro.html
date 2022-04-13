@@ -1,10 +1,8 @@
 <!DOCTYPE html>
-<html lang="pt-br" xmlns:th="https://thymeleaf.org"
+<html xmlns:th="http://thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-
+    <title>Cadastrar</title>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
     <!--Import materialize.css-->
@@ -15,14 +13,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 <body>
+<a href="/"><i class="material-icons">arrow_back</i></a>
+<h1 id="tituloPagina"> Cadastro de Usuários</h1>
 
-<h1>Tela de cadastro</h1>
+<form method="post" class="container" id="form">
+    <div id="baseUsuario">
+        <div class="input-field col s6">
+            Nome: <input type="text"
+                         name="nomeUsuario"
+                         id="nomeUsuario"
+                         required
+                         value=""
+    />
+            Ultimo nome:<input type="text"
+                         name="ultimoNome"
+                         id="ultimoNome"
+                         required
+                         value=""
+        />
+        </div>
 
-    <button>Finalizar cadastro</button>
+        <div class="input-field col s3">
+            Email: <input type="email"
+                         name="email"
+                         id="email"
+                         required
+                         value=""
+        />
+        </div>
+
+        <div class="input-field col s3">
+            Senha: <input type="password"
+                         name="senha"
+                         id="senha"
+                         required
+                         value=""
+        />
+        </div>
+
+        <div class="input-field col s3">
+            Confirme a senha: <input type="password"
+                          name="confirmSenha"
+                          id="confirmSenha"
+                          required
+                          value=""
+        />
+        </div>
+            <div id="btnCadList">
+              <button class="btn waves-effect waves-light" type="submit" name="action">
+             <i class="material-icons left">add_circle_outline</i>Cadastrar</button>
+        </div>
+    </div>
+</form>
 
 
+</body>
 
 <script type="text/javascript" src="materialize/js/materialize.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</body>
 </html>

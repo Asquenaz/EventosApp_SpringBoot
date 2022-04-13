@@ -1,11 +1,17 @@
 package com.eventoapp.controlles;
 
+import com.eventoapp.Model.Usuario;
+import com.eventoapp.Repository.UsuarioRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class IndexController {
+    @Autowired
+    UsuarioRepository usuarioRepository;
 
     @RequestMapping(value = "/")
     public String index(){
@@ -13,14 +19,9 @@ public class IndexController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public  String teste(){
-        //Validação se ta no banco
-        return "index";
-    }
+    public  String validarLogin(@RequestParam("email")
+                String email,@RequestParam("senha") String senha) {
 
-    @RequestMapping(value = "/telaCadastro")
-    public  String teste1(){
-
-        return "usuario/telaCadastro";
+        return "";
     }
 }
