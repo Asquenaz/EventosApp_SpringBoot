@@ -26,27 +26,30 @@
 <div id="base" class="container">
     <h4 id="welcome" >Bem vindo</h4>
 
-    <form method="post" id="form" class="container" >
-        <div class="row">
+    <form th:action="@{/login}" method="post" id="form" class="container"  >
+        <div th:if="${param.error}">
+            Usuário ou senha digitados incorretamente.
+        </div>
+        <div th:if="${param.logout}">
+            Vou se desconectou com sucesso.
+        </div>
 
-                E-mail: <input type="email"
-                               name="email"
+        <div class="row">
+                Login: <input type="text"
+                               name="username"
                                id="email"
                                required
                                value=""
-
             />
                 Senha: <input type="password"
-                              name="senha"
+                              name="password"
                               id="senha"
                               required
                               value=""
             />
             </div>
-
-
         <div >
-            <a href="../index.html"><button id="btnEntrar" >Entrar</button></a>
+            <button id="btnEntrar">Entrar</button></a>
         </div>
 
         <div id="LinkCadastrar" >

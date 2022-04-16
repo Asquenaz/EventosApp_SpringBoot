@@ -21,32 +21,25 @@ import java.util.Collection;
 public class Usuario implements UserDetails {
     private static long serialVersionUID = 1L;
 
-    public Usuario() {
-
-    }
-
-    public Usuario(String nome, String ultimoNome, String email, String senha, String confirmSenha) {
-        this.nome = nome;
-        this.ultimoNome = ultimoNome;
-        this.email = email;
-        this.senha = senha;
-        this.ConfirmSenha = confirmSenha;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
-    private String nome;
-
-    private String ultimoNome;
-
-    private String email;
-
+    private String login;
+    private String nomeCompleto;
     private String senha;
 
-    private String ConfirmSenha;
+    public Usuario() {
 
+    }
+
+    public Usuario(String login, String nomeCompleto, String senha)  {
+        this.login = login;
+        this.nomeCompleto = nomeCompleto;
+        this.senha = senha;
+
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -60,8 +53,9 @@ public class Usuario implements UserDetails {
 
     @Override
     public String getUsername() {
-        return this.email;
+        return this.nomeCompleto;
     }
+
 
     @Override
     public boolean isAccountNonExpired() {
